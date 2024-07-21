@@ -17,6 +17,14 @@ const DroppableWatchlist = () => {
   const dispatch = useDispatch();
   const { watchlist = [], theme } = useSelector((state) => state.watchlist);
   const isDarkMode = theme === "dark";
+  
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
   useEffect(() => {
     const savedWatchlist = localStorage.getItem("watchlist");
     if (savedWatchlist) {
