@@ -103,7 +103,7 @@ const DroppableWatchlist = () => {
                   className={`${styles["text_data"]} flex flex-row font-bold`}
                 >
                   <Image
-                    src={coin?.image}
+                    src={coin?.image?.thumb ? coin.image.thumb : coin?.image}
                     alt={coin?.name}
                     className={styles.coinImage}
                     width={24}
@@ -112,20 +112,20 @@ const DroppableWatchlist = () => {
                   <Link href={`/${coin?.id}`}>{coin?.name}</Link>
                 </td>
                 <td className={styles["text_data"]}>
-                  ${coin?.current_price?.toLocaleString()}
+                  ${coin?.market_data?.current_price?.usd? coin?.market_data?.current_price?.usd.toLocaleString() : coin?.current_price.toLocaleString()}
                 </td>
                 <td
                   className={
-                    coin?.price_change_percentage_24h >= 0
+                    (coin?.market_data?.price_change_percentage_24h?coin?.market_data?.price_change_percentage_24h:coin?.price_change_percentage_24h) >= 0
                       ? styles["positive-change"]
                       : styles["negative-change"]
                   }
                 >
-                  {coin?.price_change_percentage_24h >= 0 ? "▲" : "▼"}
-                  {coin?.price_change_percentage_24h?.toFixed(2)}%
+                  {(coin?.market_data?.price_change_percentage_24h?coin?.market_data?.price_change_percentage_24h:coin?.price_change_percentage_24h) >= 0 ? "▲" : "▼"}
+                  {(coin?.market_data?.price_change_percentage_24h?coin?.market_data?.price_change_percentage_24h:coin?.price_change_percentage_24h)?.toFixed(2)}%
                 </td>
                 <td className={styles["text_data"]}>
-                  ${formatMarketCap(coin?.market_cap)}
+                  ${formatMarketCap((coin?.market_cap?coin?.market_cap:coin?.market_data?.market_cap?.usd))}
                 </td>
                 <td className={styles["text_data"]}>
                   <button onClick={() => handleRemove(coin?.id)}>🗑️</button>
