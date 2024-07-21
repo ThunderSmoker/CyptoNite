@@ -10,7 +10,6 @@ import {
 } from "@/app/store/watchlistSlice";
 import styles from "@/app/styles/DroppableWatchlist.module.css";
 import Link from "next/link";
-import axios from "axios";
 import Image from "next/image";
 
 const DroppableWatchlist = () => {
@@ -82,9 +81,9 @@ const DroppableWatchlist = () => {
     >
       <div className={styles.market_header}>
         <h2>Watchlist</h2>
-        <a href="/explore" className={styles.viewMore}>
+        <Link href="/explore" className={styles.viewMore}>
           View more coins
-        </a>
+        </Link>
       </div>
       {watchlist.length > 0 ? (
         <table className={styles.market_table}>
