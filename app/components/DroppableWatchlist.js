@@ -11,6 +11,7 @@ import {
 import styles from "@/app/styles/DroppableWatchlist.module.css";
 import Link from "next/link";
 import axios from "axios";
+import Image from "next/image";
 
 const DroppableWatchlist = () => {
   const dispatch = useDispatch();
@@ -135,10 +136,12 @@ const DroppableWatchlist = () => {
                 <td
                   className={`${styles["text_data"]} flex flex-row font-bold`}
                 >
-                  <img
+                  <Image
                     src={coin.image}
                     alt={coin.name}
                     className={styles.coinImage}
+                    width={24}
+                    height={24}
                   />
                   <Link href={`/${coin.id}`}>{coin.name}</Link>
                 </td>

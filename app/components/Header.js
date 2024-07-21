@@ -89,7 +89,7 @@ const Header = () => {
             {suggestions.map((coin) => (
               <li key={coin.id} className={styles.suggestionItem} onClick={() => handleSuggestionClick(coin)}>
                 <Link href={`/${coin.id}`}>
-                  <img src={coin.thumb} alt={coin.name} width={20} height={20} className={styles.suggestionImage} />
+                  <Image src={coin.thumb} alt={coin.name} width={20} height={20} className={styles.suggestionImage} />
                   {coin.name} ({coin.symbol})
                 </Link>
               </li>

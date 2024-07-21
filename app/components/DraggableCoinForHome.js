@@ -4,6 +4,7 @@ import { useDrag } from "react-dnd";
 import styles from "@/app/styles/DraggableCoin.module.css";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 
 const DraggableCoinForHome = ({ coin, isWatchlist }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -41,7 +42,7 @@ const DraggableCoinForHome = ({ coin, isWatchlist }) => {
         } flex flex-row font-bold`}
         
       >
-        <img src={coin.image} alt={coin.name} className={styles.coinImage} />
+        <Image src={coin.image} alt={coin.name} className={styles.coinImage} width={24} height={24}/>
         <Link href={`/${coin.id}`}className={styles.coin_name}>{coin.name}</Link>
       </td>
       <td className={isDarkMode ? styles["text-data"] : styles["text-data"]}>

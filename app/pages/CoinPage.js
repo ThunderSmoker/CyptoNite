@@ -8,7 +8,7 @@ import Tick from "@/app/images/tick.png";
 import styles from "@/app/styles/CoinPage.module.css";
 import Header from "../components/Header";
 import Loading from "../components/Loading";
-import { toast } from 'react-hot-toast';
+import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import {
@@ -103,7 +103,7 @@ const ChartSection = ({
   );
 };
 
-const CoinSummary = ({ coin, isAdded,setIsAdded }) => {
+const CoinSummary = ({ coin, isAdded, setIsAdded }) => {
   const dispatch = useDispatch();
   const isPositive = coin?.market_data?.price_change_percentage_24h >= 0;
   // console.log("here"+isAdded);
@@ -119,13 +119,17 @@ const CoinSummary = ({ coin, isAdded,setIsAdded }) => {
       toast.error("Coin removed from watchlist");
     }
     setIsAdded(!isAdded);
-    
   };
   return (
     <div className={styles.coinSummary}>
       <div className={styles.coinIcon}>
         {coin?.image?.small && (
-          <img src={coin.image.small} alt={`${coin?.name} icon`} />
+          <Image
+            src={coin.image.small}
+            alt={`${coin?.name} icon`}
+            width={40}
+            height={40}
+          />
         )}
       </div>
       <div className={styles.coinInfo}>
@@ -133,11 +137,10 @@ const CoinSummary = ({ coin, isAdded,setIsAdded }) => {
         <span className={styles.coinPrice}>
           ${coin?.market_data?.current_price?.usd?.toLocaleString()}
           <button onClick={handletoggle} className={styles.button_plus}>
-            {" "}
             {isAdded ? (
-              <Image src={Tick} alt="" srcset="" />
+              <Image src={Tick} alt="Added" />
             ) : (
-              <Image src={Plus} alt="" srcset="" />
+              <Image src={Plus} alt="Add to Watchlist" />
             )}
           </button>
         </span>
@@ -279,7 +282,9 @@ const AboutSection = ({ coinData }) => (
     <h2 className={styles.header_title}>About {coinData?.name}</h2>
     <p
       className={styles.abtp}
-      dangerouslySetInnerHTML={{ __html: coinData?.description?.en || "" }}
+      dangerouslySetInnerHTML={{
+        __html: (coinData?.description?.en || "").replace(/'/g, "&#39;"),
+      }}
     ></p>
   </div>
 );
@@ -303,7 +308,9 @@ const CoinPage = () => {
   const id = pathname;
   const { watchlist = [], theme } = useSelector((state) => state.watchlist);
   const isDarkMode = theme === "dark";
-  const [isAdded,setIsAdded] =useState( watchlist.some((coin) => coin.id === id.substring(1)));
+  const [isAdded, setIsAdded] = useState(
+    watchlist.some((coin) => coin.id === id.substring(1))
+  );
   // console.log(watchlist,isAdded);
 
   const fetchCoinData = async (id) => {
@@ -363,7 +370,11 @@ const CoinPage = () => {
       <div
         className={`${styles.container} ${isDarkMode ? styles.darkMode : ""}`}
       >
-        <CoinSummary coin={coinData} isAdded={isAdded} setIsAdded={setIsAdded} />
+        <CoinSummary
+          coin={coinData}
+          isAdded={isAdded}
+          setIsAdded={setIsAdded}
+        />
         <div style={{ height: "2rem" }}></div>
         <ChartSection
           chartData={chartData}
