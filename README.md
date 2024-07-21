@@ -6,7 +6,7 @@ This web application allows users to track and explore various cryptocurrencies 
 
 ## Demo Video
 [![DEMO](https://img.youtube.com/vi/eUyxcOlv3F0/0.jpg)](https://www.youtube.com/watch?v=eUyxcOlv3F0)
-Click Here to watch -> [LINK](https://youtu.be/eUyxcOlv3F0)
+-Click Here to watch -> [LINK](https://youtu.be/eUyxcOlv3F0)
 
 ## ScreenShots
 ### Home
