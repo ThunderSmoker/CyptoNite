@@ -20,7 +20,7 @@ const fetchCoins = async (page) => {
           page: page,
           price_change_percentage: "1h, 24h, 7d, 1y",
           sparkline: false,
-       
+    
         },
         headers:{
           accept: 'application/json',
@@ -28,7 +28,7 @@ const fetchCoins = async (page) => {
         }
       }
     );
-    console.log("Coin data:", response.data);
+    // console.log("Coin data:", response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching coin data:", error);
@@ -46,7 +46,7 @@ const Explore = () => {
     const getCoins = async () => {
       const coinsData = await fetchCoins(page);
       setCoins(coinsData);
-      console.log(coinsData);
+      // console.log(coinsData);
     };
     getCoins();
   }, [page]);

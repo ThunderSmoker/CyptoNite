@@ -36,7 +36,6 @@ const MarketCryptoChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(process.env.NEXT_PUBLIC_API_KEY);
         const response = await axios.get(
           "https://api.coingecko.com/api/v3/coins/markets",
           {
@@ -47,7 +46,7 @@ const MarketCryptoChart = () => {
               per_page: 3,
               page: 1,
               sparkline: true,
-           
+              x_cg_demo_api_key: process.env.NEXT_PUBLIC_API_KEY
             },
             headers:{
               accept: 'application/json',

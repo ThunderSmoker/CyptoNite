@@ -14,6 +14,7 @@ const TrendingMarket = () => {
 
   useEffect(() => {
     const fetchMarketData = async () => {
+      console.log("Trending Market",process.env.NEXT_PUBLIC_API_KEY);
       try {
         const response = await axios.get(
           "https://api.coingecko.com/api/v3/coins/markets",
@@ -23,7 +24,7 @@ const TrendingMarket = () => {
               order: "market_cap_desc",
               per_page: 5,
               page: 1,
-             
+              x_cg_demo_api_key: process.env.NEXT_PUBLIC_API_KEY
             },
             headers:{
               accept: 'application/json',
@@ -32,7 +33,7 @@ const TrendingMarket = () => {
           }
         );
         setMarketData(response.data);
-        console.log("Market data:", response.data);
+        // console.log("Market data:", response.data);
       } catch (error) {
         console.error("Error fetching market data:", error);
       }

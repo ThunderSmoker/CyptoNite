@@ -90,7 +90,7 @@ const ChartSection = ({
               color: isDarkMode ? "#fff" : "#000",
               border:
                 timeInterval === interval
-                  ? "2px solid #02588e"
+                  ? "3px solid #0b9b1a"
                   : "2px solid grey",
             }}
           >
@@ -106,14 +106,13 @@ const ChartSection = ({
 const CoinSummary = ({ coin, isAdded, setIsAdded }) => {
   const dispatch = useDispatch();
   const isPositive = coin?.market_data?.price_change_percentage_24h >= 0;
- 
+
   const handletoggle = () => {
-   
     if (!isAdded) {
       dispatch(addCoin(coin));
       toast.success("Coin added to watchlist");
     } else {
-      console.log(coin);
+      // console.log(coin);
       dispatch(removeCoin(coin.id));
       toast.error("Coin removed from watchlist");
     }
@@ -317,11 +316,11 @@ const CoinPage = () => {
       const coinResponse = await axios.get(
         `https://api.coingecko.com/api/v3/coins${id}`,
         {
-          
-          headers:{
-            accept: 'application/json',
-            'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
-          }
+
+          headers: {
+            accept: "application/json",
+            "x-cg-demo-api-key": process.env.NEXT_PUBLIC_API_KEY,
+          },
         }
       );
       setCoinData(coinResponse.data);
@@ -339,13 +338,12 @@ const CoinPage = () => {
           params: {
             vs_currency: "usd",
             days,
-          
+            x_cg_demo_api_key: process.env.NEXT_PUBLIC_API_KEY
           },
-          headers:{
-            accept: 'application/json',
-            'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
-          }
-
+          headers: {
+            accept: "application/json",
+            "x-cg-demo-api-key": process.env.NEXT_PUBLIC_API_KEY,
+          },
         }
       );
       setChartData(chartResponse.data);

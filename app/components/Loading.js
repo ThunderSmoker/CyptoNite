@@ -11,7 +11,7 @@ const Loading = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowReloadMessage(true);
-    }, 8000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
