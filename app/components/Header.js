@@ -17,9 +17,10 @@ const Header = () => {
   const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.watchlist);
   const isDarkMode = theme === "dark";
-  const root = document.documentElement;
+
   
   useEffect(() => {
+    const root = document.documentElement;
     if (isDarkMode) {
       root.classList.add("dark");
     } else {
