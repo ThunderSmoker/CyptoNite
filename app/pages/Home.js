@@ -12,7 +12,7 @@ import TrendingMarket from "../components/TrendingMarket";
 export default function Home() {
   const { theme } = useSelector((state) => state.watchlist);
   const isDarkMode = theme === "dark";
-  console.log("theme", theme);
+  
   useEffect(() => {
     function toggleDarkMode(mode) {
       document.documentElement.classList.add("dark");

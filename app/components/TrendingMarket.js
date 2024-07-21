@@ -23,8 +23,12 @@ const TrendingMarket = () => {
               order: "market_cap_desc",
               per_page: 5,
               page: 1,
-              x_cg_demo_api_key: process.env.API_KEY,
+             
             },
+            headers:{
+              accept: 'application/json',
+              'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
+            }
           }
         );
         setMarketData(response.data);

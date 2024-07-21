@@ -43,9 +43,10 @@ const Header = () => {
     try {
       const response = await axios.get(
         `https://api.coingecko.com/api/v3/search?query=${query}`, {
-          params: {
-            x_cg_demo_api_key: process.env.API_KEY,
-          },
+          headers:{
+            accept: 'application/json',
+            'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
+          }
         }
       );
       setSuggestions(response.data.coins.slice(0, 5) || []); // Limit to top 5 results

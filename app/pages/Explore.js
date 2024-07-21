@@ -20,8 +20,12 @@ const fetchCoins = async (page) => {
           page: page,
           price_change_percentage: "1h, 24h, 7d, 1y",
           sparkline: false,
-          x_cg_demo_api_key: process.env.API_KEY,
+       
         },
+        headers:{
+          accept: 'application/json',
+          'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
+        }
       }
     );
     console.log("Coin data:", response.data);

@@ -106,10 +106,9 @@ const ChartSection = ({
 const CoinSummary = ({ coin, isAdded, setIsAdded }) => {
   const dispatch = useDispatch();
   const isPositive = coin?.market_data?.price_change_percentage_24h >= 0;
-  // console.log("here"+isAdded);
-
+ 
   const handletoggle = () => {
-    // console.log("ther"+isAdded);
+   
     if (!isAdded) {
       dispatch(addCoin(coin));
       toast.success("Coin added to watchlist");
@@ -318,9 +317,11 @@ const CoinPage = () => {
       const coinResponse = await axios.get(
         `https://api.coingecko.com/api/v3/coins${id}`,
         {
-          params: {
-            x_cg_demo_api_key: process.env.API_KEY, // Use NEXT_PUBLIC_API_KEY for client-side
-          },
+          
+          headers:{
+            accept: 'application/json',
+            'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
+          }
         }
       );
       setCoinData(coinResponse.data);
@@ -338,8 +339,13 @@ const CoinPage = () => {
           params: {
             vs_currency: "usd",
             days,
-            x_cg_demo_api_key: process.env.API_KEY, // Use NEXT_PUBLIC_API_KEY for client-side
+          
           },
+          headers:{
+            accept: 'application/json',
+            'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
+          }
+
         }
       );
       setChartData(chartResponse.data);
