@@ -85,10 +85,10 @@ To run this project locally, follow these steps:
 
 4. **Set Up Environment Variables:**
 
-Create a .env file in the root directory of the project and add your API keys and other necessary environment variables. Example:
+Create a .env.local file in the root directory of the project and add your API keys and other necessary environment variables. Example:
 
 ```
-API_KEY=your_api_key_here
+NEXT_PUBLIC_API_KEY=your_api_key_here
 ```
 
 5. **Run the Development Server:**
