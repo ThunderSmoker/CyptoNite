@@ -77,7 +77,7 @@ const Header = () => {
       className={`${styles.header} ${isDarkMode ? styles.dark : ""}`}
       style={{ backgroundColor: isDarkMode ? "#000" : "#fff" }}
     >
-      <a href="/">
+      <Link href="/">
         <div className={styles.logo}>
           {isDarkMode ? (
             <Image src={Logob} alt="Logo" />
@@ -85,7 +85,7 @@ const Header = () => {
             <Image src={Logow} alt="Logo" />
           )}
         </div>
-      </a>
+      </Link>
       <div className={styles.searchBar}>
         <input
           type="text"
@@ -101,7 +101,7 @@ const Header = () => {
                 className={styles.suggestionItem}
                 onClick={() => handleSuggestionClick(coin)}
               >
-                <a href={`/${coin.id}`}>
+                <Link href={`/${coin.id}`}>
                   <Image
                     src={coin.thumb}
                     alt={coin.name}
@@ -110,7 +110,7 @@ const Header = () => {
                     className={styles.suggestionImage}
                   />
                   {coin.name} ({coin.symbol})
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

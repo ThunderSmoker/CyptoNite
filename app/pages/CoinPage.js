@@ -388,7 +388,7 @@ const CoinPage = () => {
         />
         <PerformanceSection coinData={coinData} />
         <FundamentalsSection coinData={coinData} />
-        <AboutSection coinData={coinData} />
+        <aboutSection coinData={coinData} />
       </div>
     </>
   );

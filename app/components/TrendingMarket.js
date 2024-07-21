@@ -51,9 +51,9 @@ const TrendingMarket = () => {
     >
       <div className={styles.marketHeader}>
         <h2>Trending Market</h2>
-        <a href="/explore" className={styles.viewMore}>
+        <Link href="/explore" className={styles.viewMore}>
           View more coins
-        </a>
+        </Link>
       </div>
       <table className={styles.marketTable}>
         <thead>

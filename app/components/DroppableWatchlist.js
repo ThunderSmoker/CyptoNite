@@ -109,7 +109,7 @@ const DroppableWatchlist = () => {
                     width={24}
                     height={24}
                   />
-                  <a href={`/${coin?.id}`}>{coin?.name}</a>
+                  <Link href={`/${coin?.id}`}>{coin?.name}</Link>
                 </td>
                 <td className={styles["text_data"]}>
                   ${coin?.current_price?.toLocaleString()}

@@ -44,7 +44,7 @@ const DraggableCoinForExplore = ({ coin, isWatchlist }) => {
         
       >
         <Image src={coin.image} alt={coin.name} className={styles.coinImage} width={24} height={24}/>
-        <a href={`/${coin.id}`}className={styles.coin_name}>{coin.name}</a>
+        <Link href={`/${coin.id}`}className={styles.coin_name}>{coin.name}</Link>
       </td>
       <td className={isDarkMode ? styles["text-data"] : styles["text-data"]}>
         ${coin.current_price.toLocaleString()}
