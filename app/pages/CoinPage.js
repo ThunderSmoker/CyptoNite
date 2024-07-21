@@ -180,7 +180,7 @@ const PerformanceSection = ({ coinData }) => {
       <h2 className={styles.headerTitle}>Performance</h2>
       <div className={styles.performanceBar}>
         <span>
-          Today's Low <br /> <b>{todayLow}</b>{" "}
+          Today&#39;s Low <br /> <b>{todayLow}</b>{" "}
         </span>
         <div className={styles.barWrapper}>
           <div
@@ -199,7 +199,7 @@ const PerformanceSection = ({ coinData }) => {
           </span>
         </div>
         <span>
-          Today's High <br /> <b>{todayHigh}</b>
+          Today&#39;s High <br /> <b>{todayHigh}</b>
         </span>
       </div>
       <div className={styles.performanceBar}>
