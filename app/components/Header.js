@@ -44,7 +44,7 @@ const Header = () => {
       const response = await axios.get(
         `https://api.coingecko.com/api/v3/search?query=${query}`, {
           params: {
-            x_cg_pro_api_key: process.env.API_KEY,
+            x_cg_demo_api_key: process.env.API_KEY,
           },
         }
       );

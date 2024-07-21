@@ -29,7 +29,7 @@ const DroppableWatchlist = () => {
             vs_currency: 'usd',
             ids: watchlist.map((coin) => coin.id).join(','),
             price_change_percentage: '1h,24h,7d',
-            x_cg_pro_api_key: process.env.API_KEY,
+            x_cg_demo_api_key: process.env.API_KEY,
           }
         }
       );

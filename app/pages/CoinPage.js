@@ -319,7 +319,7 @@ const CoinPage = () => {
         `https://api.coingecko.com/api/v3/coins${id}`,
         {
           params: {
-            x_cg_pro_api_key: process.env.API_KEY, // Use NEXT_PUBLIC_API_KEY for client-side
+            x_cg_demo_api_key: process.env.API_KEY, // Use NEXT_PUBLIC_API_KEY for client-side
           },
         }
       );
@@ -338,7 +338,7 @@ const CoinPage = () => {
           params: {
             vs_currency: "usd",
             days,
-            x_cg_pro_api_key: process.env.API_KEY, // Use NEXT_PUBLIC_API_KEY for client-side
+            x_cg_demo_api_key: process.env.API_KEY, // Use NEXT_PUBLIC_API_KEY for client-side
           },
         }
       );

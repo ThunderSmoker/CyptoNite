@@ -46,7 +46,7 @@ const MarketCryptoChart = () => {
               per_page: 3,
               page: 1,
               sparkline: true,
-              x_cg_pro_api_key: process.env.API_KEY,
+              x_cg_demo_api_key: process.env.API_KEY,
             },
           }
         );

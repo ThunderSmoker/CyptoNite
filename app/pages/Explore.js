@@ -20,7 +20,7 @@ const fetchCoins = async (page) => {
           page: page,
           price_change_percentage: "1h, 24h, 7d, 1y",
           sparkline: false,
-          x_cg_pro_api_key: process.env.API_KEY,
+          x_cg_demo_api_key: process.env.API_KEY,
         },
       }
     );
