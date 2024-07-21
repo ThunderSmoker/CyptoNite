@@ -11,7 +11,19 @@ import MarketCryptoChart from "../components/MarketCapChart";
 import TrendingMarket from "../components/TrendingMarket";
 export default function Home() {
   
-
+  const { theme } = useSelector((state) => state.watchlist);
+  console.log(theme);
+  const isDarkMode = theme === "dark";
+  
+  useEffect(() => {
+    function toggleDarkMode(mode) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.toggle("dark");
+    }
+    if (isDarkMode) {
+      toggleDarkMode(theme);
+    }
+  }, [theme,isDarkMode]);
   return (
     <DndProvider backend={HTML5Backend}>
       <Header />
