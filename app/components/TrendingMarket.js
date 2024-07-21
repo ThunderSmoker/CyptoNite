@@ -63,7 +63,11 @@ const TrendingMarket = () => {
         </thead>
         <tbody className={styles.tableBody}>
           {marketData.map((coin) => (
-            <DraggableCoinForHome key={coin.id} coin={coin} isWatchlist={false} />
+            <DraggableCoinForHome
+              key={coin.id}
+              coin={coin}
+              isWatchlist={false}
+            />
           ))}
         </tbody>
       </table>

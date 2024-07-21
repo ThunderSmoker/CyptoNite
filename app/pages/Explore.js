@@ -18,7 +18,7 @@ const fetchCoins = async (page) => {
           order: "market_cap_desc",
           per_page: 10,
           page: page,
-          price_change_percentage:'1h, 24h, 7d, 1y',
+          price_change_percentage: "1h, 24h, 7d, 1y",
           sparkline: false,
           x_cg_pro_api_key: process.env.API_KEY,
         },
@@ -45,7 +45,6 @@ const Explore = () => {
       console.log(coinsData);
     };
     getCoins();
- 
   }, [page]);
 
   const handleNextPage = () => {
@@ -98,34 +97,35 @@ const Explore = () => {
         </div>
       )}
       <div className={styles.mcontainer}>
-
-      
-      <div
-        className={styles.container}
-        style={{ backgroundColor: isDarkMode ? "#000" : "#f0f0f0" }}
-      >
-        
-        {coins.length > 0 ? (
-          <table className={styles.market_table}>
-            <thead>
-              <tr>
-                <th>Token</th>
-                <th>Last Price</th>
-                <th>1H Price %</th>
-                <th>1D Price</th>
-                <th>1D MCap</th>
-                <th>Market Cap</th>
-              </tr>
-            </thead>
-            <tbody className="table-body">
-              {coins.map((coin) => (
-                <DraggableCoinForExplore key={coin.id} coin={coin} isWatchlist={false} />
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <Loading />
-        )}
+        <div
+          className={styles.container}
+          style={{ backgroundColor: isDarkMode ? "#000" : "#f0f0f0" }}
+        >
+          {coins.length > 0 ? (
+            <table className={styles.market_table}>
+              <thead>
+                <tr>
+                  <th>Token</th>
+                  <th>Last Price</th>
+                  <th>1H Price %</th>
+                  <th>1D Price</th>
+                  <th>1D MCap</th>
+                  <th>Market Cap</th>
+                </tr>
+              </thead>
+              <tbody className="table-body">
+                {coins.map((coin) => (
+                  <DraggableCoinForExplore
+                    key={coin.id}
+                    coin={coin}
+                    isWatchlist={false}
+                  />
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <Loading />
+          )}
         </div>
         <DroppableWatchlist />
       </div>
