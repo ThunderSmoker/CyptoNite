@@ -32,6 +32,7 @@ This web application allows users to track and explore various cryptocurrencies 
 - **Navigation:** Clicking on a coin card routes the user to the product page for detailed information.
 
 ### Product Page
+- **Add to Watchlist:** Button which adds that coin to your watchlist.
 - **Basic Information:** Provides essential details about the selected cryptocurrency.
 - **Price Graph:** Displays a candlestick or line graph of the cryptocurrency’s price over time.
 
