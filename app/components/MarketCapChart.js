@@ -15,7 +15,7 @@ import {
 import "chartjs-adapter-date-fns";
 import "@/app/styles/MarketCapChart.css";
 import Loading from "./Loading";
-import { useSelector } from "react-redux"; // Import useSelector
+import { useSelector } from "react-redux";
 
 // Register the necessary components
 ChartJS.register(
@@ -46,25 +46,24 @@ const MarketCryptoChart = () => {
               per_page: 3,
               page: 1,
               sparkline: true,
-              x_cg_demo_api_key: process.env.NEXT_PUBLIC_API_KEY
             },
-            headers:{
+            headers: {
               accept: 'application/json',
               'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
             }
           }
         );
-        
+
         const data = response.data;
-        const btcPrices = data.find((coin) => coin.id === "bitcoin")
-          .sparkline_in_7d.price;
-        const ethPrices = data.find((coin) => coin.id === "ethereum")
-          .sparkline_in_7d.price;
-        const ltcPrices = data.find((coin) => coin.id === "litecoin")
-          .sparkline_in_7d.price;
+        const btcPrices = data.find((coin) => coin.id === "bitcoin")?.sparkline_in_7d?.price || [];
+        const ethPrices = data.find((coin) => coin.id === "ethereum")?.sparkline_in_7d?.price || [];
+        const ltcPrices = data.find((coin) => coin.id === "litecoin")?.sparkline_in_7d?.price || [];
+
+        const now = new Date();
+        const labels = btcPrices.map((_, index) => new Date(now - (btcPrices.length - index - 1) * 3600 * 1000));
 
         setChartData({
-          labels: btcPrices.map((_, index) => new Date().setHours(index)),
+          labels,
           datasets: [
             {
               label: "BTC",
@@ -93,25 +92,18 @@ const MarketCryptoChart = () => {
           ],
         });
       } catch (error) {
-        console.error(
-          "Error fetching the data from CoinGecko API. Using dummy data.",
-          error
-        );
-        
+        console.error("Error fetching the data from CoinGecko API.", error);
       }
     };
 
     fetchData();
-  });
+  }, []); // Empty dependency array to fetch data once on mount
+
   useEffect(() => {
-    if (isDarkMode) {
-      document.body.style.backgroundColor = "black";
-    } else {
-      document.body.style.backgroundColor = "white";
-    }
+    document.body.style.backgroundColor = isDarkMode ? "black" : "white";
   }, [isDarkMode]);
+
   if (!chartData) {
-    // window.location.reload();
     return <Loading />;
   }
 
@@ -184,10 +176,6 @@ const MarketCryptoChart = () => {
               bottom: 0,
             },
           },
-          // Set canvas background color
-          responsive: true,
-          maintainAspectRatio: false,
-          backgroundColor: isDarkMode ? "#000" : "#fff",
         }}
         style={{ backgroundColor: isDarkMode ? "#000" : "#fff" }}
       />

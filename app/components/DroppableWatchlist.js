@@ -17,38 +17,6 @@ const DroppableWatchlist = () => {
   const dispatch = useDispatch();
   const { watchlist = [], theme } = useSelector((state) => state.watchlist);
   const isDarkMode = theme === "dark";
-  const [fetching, setFetching] = useState(true);
-
-  // Fetch fresh data
-  const fetchMarketData = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/markets`,
-        {
-          params: {
-            vs_currency: 'usd',
-            ids: watchlist.map((coin) => coin.id).join(','),
-            price_change_percentage: '1h,24h,7d',
-            x_cg_demo_api_key: process.env.NEXT_PUBLIC_API_KEY
-          },
-          headers:{
-            accept: 'application/json',
-            'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
-          }
-        }
-      );
-      const updatedWatchlist = watchlist.map((coin) => {
-        const marketData = response.data.find((data) => data.id === coin.id);
-        return marketData ? { ...coin, ...marketData } : coin;
-      });
-      dispatch(setWatchlist(updatedWatchlist));
-      setFetching(false);
-    } catch (error) {
-      console.error("Error fetching market data:", error);
-      setFetching(false);
-    }
-  };
-
   useEffect(() => {
     const savedWatchlist = localStorage.getItem("watchlist");
     if (savedWatchlist) {
@@ -60,19 +28,10 @@ const DroppableWatchlist = () => {
     localStorage.setItem("watchlist", JSON.stringify({ watchlist, theme }));
   }, [watchlist, theme]);
 
-  useEffect(() => {
-    fetchMarketData();
-    const interval = setInterval(() => {
-      fetchMarketData();
-    }, 60000); // Refresh every minute
-
-    return () => clearInterval(interval);
-  }, [watchlist]);
-
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "COIN",
     drop: (item) => {
-      const coinExists = watchlist.some((coin) => coin.id === item.coin.id);
+      const coinExists = watchlist.some((coin) => coin?.id === item.coin?.id);
       if (!coinExists) {
         dispatch(addCoin(item.coin));
       }
@@ -115,15 +74,11 @@ const DroppableWatchlist = () => {
     >
       <div className={styles.market_header}>
         <h2>Watchlist</h2>
-        <Link href="/explore" className={styles.viewMore}>
+        <a href="/explore" className={styles.viewMore}>
           View more coins
-        </Link>
+        </a>
       </div>
-      {fetching ? (
-        <div className="flex flex-col justify-center items-center">
-          <p className="text-lg">Fetching data...</p>
-        </div>
-      ) : watchlist.length > 0 ? (
+      {watchlist.length > 0 ? (
         <table className={styles.market_table}>
           <thead>
             <tr>
@@ -136,18 +91,18 @@ const DroppableWatchlist = () => {
           </thead>
           <tbody className={styles["table-body"]}>
             {watchlist.map((coin) => (
-              <tr key={coin.id}>
+              <tr key={coin?.id}>
                 <td
                   className={`${styles["text_data"]} flex flex-row font-bold`}
                 >
                   <Image
-                    src={coin.image}
-                    alt={coin.name}
+                    src={coin?.image}
+                    alt={coin?.name}
                     className={styles.coinImage}
                     width={24}
                     height={24}
                   />
-                  <Link href={`/${coin.id}`}>{coin.name}</Link>
+                  <a href={`/${coin?.id}`}>{coin?.name}</a>
                 </td>
                 <td className={styles["text_data"]}>
                   ${coin?.current_price?.toLocaleString()}

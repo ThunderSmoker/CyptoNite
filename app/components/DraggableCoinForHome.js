@@ -43,7 +43,7 @@ const DraggableCoinForHome = ({ coin, isWatchlist }) => {
         
       >
         <Image src={coin.image} alt={coin.name} className={styles.coinImage} width={24} height={24}/>
-        <Link href={`/${coin.id}`}className={styles.coin_name}>{coin.name}</Link>
+        <a href={`/${coin.id}`}className={styles.coin_name}>{coin.name}</a>
       </td>
       <td className={isDarkMode ? styles["text-data"] : styles["text-data"]}>
         {coin.symbol.toUpperCase()}

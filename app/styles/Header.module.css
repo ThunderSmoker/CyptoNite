@@ -22,6 +22,7 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   width: 100%;
+  color: #000;
 }
 
 .themeToggle {
@@ -60,9 +61,11 @@
   background-color: var(--background-light); /* Variable used here */
   border: 1px solid #ddd;
   border-radius: 4px;
+  
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   max-height: 200px;
   overflow-y: auto;
+  scroll-behavior: smooth;
   overflow-x: hidden;
   z-index: 1000; /* Ensure it overlays other layers */
 }
@@ -72,6 +75,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: #000;
 }
 
 .suggestionItem:hover {

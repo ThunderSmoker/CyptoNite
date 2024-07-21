@@ -10,18 +10,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import MarketCryptoChart from "../components/MarketCapChart";
 import TrendingMarket from "../components/TrendingMarket";
 export default function Home() {
-  const { theme } = useSelector((state) => state.watchlist);
-  const isDarkMode = theme === "dark";
   
-  useEffect(() => {
-    function toggleDarkMode(mode) {
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.toggle("dark");
-    }
-    if (isDarkMode) {
-      toggleDarkMode(theme);
-    }
-  }, [theme]);
 
   return (
     <DndProvider backend={HTML5Backend}>

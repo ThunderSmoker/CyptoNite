@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import styles from "@/app/styles/Header.module.css"; 
-import '../globals.css';// Import the CSS module
+import styles from "@/app/styles/Header.module.css";
+import "../globals.css"; // Import the CSS module
 import Sun from "@/app/images/icons8-sun-50.png";
 import Moon from "@/app/images/icons8-moon-50.png";
 import Image from "next/image";
@@ -17,14 +17,13 @@ const Header = () => {
   const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.watchlist);
   const isDarkMode = theme === "dark";
-
   
+
   useEffect(() => {
-    const root = document.documentElement;
     if (isDarkMode) {
-      root.classList.add("dark");
+      document.documentElement.classList.add("dark");
     } else {
-      root.classList.remove("dark");
+      document.documentElement.classList.remove("dark");
     }
   }, [isDarkMode]);
 
@@ -42,14 +41,15 @@ const Header = () => {
     }
     try {
       const response = await axios.get(
-        `https://api.coingecko.com/api/v3/search?query=${query}`, {
-          headers:{
-            accept: 'application/json',
-            'x-cg-demo-api-key': process.env.NEXT_PUBLIC_API_KEY
-          }
+        `https://api.coingecko.com/api/v3/search?query=${query}`,
+        {
+          headers: {
+            accept: "application/json",
+            "x-cg-demo-api-key": process.env.NEXT_PUBLIC_API_KEY,
+          },
         }
       );
-      setSuggestions(response.data.coins.slice(0, 5) || []); // Limit to top 5 results
+      setSuggestions(response.data.coins || []);
     } catch (error) {
       console.error("Error fetching suggestions:", error);
     }
@@ -59,7 +59,7 @@ const Header = () => {
     const debounceFetch = setTimeout(() => {
       fetchSuggestions(searchQuery);
     }, 300);
-    
+
     return () => clearTimeout(debounceFetch);
   }, [searchQuery]);
 
@@ -73,12 +73,19 @@ const Header = () => {
   };
 
   return (
-    <header className={`${styles.header} ${isDarkMode ? styles.dark : ""}`} style={{backgroundColor:(isDarkMode?"#000":"#fff")}}>
-      <Link href="/">
+    <header
+      className={`${styles.header} ${isDarkMode ? styles.dark : ""}`}
+      style={{ backgroundColor: isDarkMode ? "#000" : "#fff" }}
+    >
+      <a href="/">
         <div className={styles.logo}>
-          {isDarkMode ? <Image src={Logob} alt="Logo" /> : <Image src={Logow} alt="Logo" />}
+          {isDarkMode ? (
+            <Image src={Logob} alt="Logo" />
+          ) : (
+            <Image src={Logow} alt="Logo" />
+          )}
         </div>
-      </Link>
+      </a>
       <div className={styles.searchBar}>
         <input
           type="text"
@@ -89,13 +96,28 @@ const Header = () => {
         {suggestions.length > 0 && (
           <ul className={styles.suggestions}>
             {suggestions.map((coin) => (
-              <li key={coin.id} className={styles.suggestionItem} onClick={() => handleSuggestionClick(coin)}>
-                <Link href={`/${coin.id}`}>
-                  <Image src={coin.thumb} alt={coin.name} width={20} height={20} className={styles.suggestionImage} />
+              <li
+                key={coin.id}
+                className={styles.suggestionItem}
+                onClick={() => handleSuggestionClick(coin)}
+              >
+                <a href={`/${coin.id}`}>
+                  <Image
+                    src={coin.thumb}
+                    alt={coin.name}
+                    width={20}
+                    height={20}
+                    className={styles.suggestionImage}
+                  />
                   {coin.name} ({coin.symbol})
-                </Link>
+                </a>
               </li>
             ))}
+          </ul>
+        )}
+        {suggestions.length === 0 && searchQuery.length >=3 && (
+          <ul className={styles.suggestions}>
+            <li className={styles.suggestionItem}>No Data Found!</li>
           </ul>
         )}
       </div>
