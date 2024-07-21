@@ -1,0 +1,150 @@
+/* pages/Explore.module.css */
+
+/* Common styles */
+.mcontainer {
+  display: flex;
+}
+.container{
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
+  overflow: hidden;
+  padding: 20px;
+}
+/* Light mode styles */
+.market_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  width: 200%;
+  
+}
+
+.market_header h2 {
+  margin: 0;
+  color: black;
+  font-weight: bolder;
+  font-size: 24px;
+  margin: 0 2rem;
+}
+
+.market_table {
+  width: 90%;
+  border-collapse: collapse;
+ 
+}
+
+.market_table th, .market_table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.market_table th {
+  color: gray;
+  font-weight: bold;
+  border-bottom: 1px solid #a19d9d;
+}
+
+.text-data {
+  color: black;
+}
+
+.market_table td {
+  border-bottom: 1px solid #a19d9d;
+}
+
+.coin-image {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.positive-change {
+  color: green;
+}
+
+.negative-change {
+  color: red;
+}
+.darkMode .mcontainer{
+  background-color: #000;
+}
+.darkMode .market_header {
+  background-color: #333;
+}
+
+.darkMode .market_header h2 {
+  color: white;
+}
+
+.darkMode .market_table {
+  background-color: #1e1e1e;
+  color: white;
+ 
+}
+
+.darkMode .market_table th {
+  color: #bbb;
+}
+
+.darkMode .text-data {
+  color: white;
+}
+
+.darkMode .market_table td {
+  border-bottom: 1px solid #444;
+}
+
+.darkMode .coin-image {
+  filter: invert(1);
+}
+
+.darkMode .positive-change {
+  color: lightgreen;
+}
+
+.darkMode .negative-change {
+  color: lightcoral;
+}
+
+.darkMode .button {
+  background-color: #555;
+  color: #ddd;
+}
+@media screen and (max-width: 768px) {
+  .mcontainer {
+ 
+    flex-direction: column;
+  }
+  .container{
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-color: #333 #333;
+    display: block;
+  }
+  .marketHeader h2 {
+    font-size: 20px;
+  }
+
+  .marketHeader .viewMore {
+    font-size: 14px;
+  }
+
+  .marketTable th,
+  .marketTable td {
+    padding: 8px;
+  }
+
+  .coinImage {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+  
+}

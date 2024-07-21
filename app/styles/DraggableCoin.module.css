@@ -1,0 +1,95 @@
+/* components/DraggableCoin.module.css */
+
+/* Common styles */
+.coin {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.coinInfo {
+  display: flex;
+  align-items: center;
+}
+
+.coinDetails {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.change {
+  color: green;
+}
+
+.market_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.market_table th, .market_table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.market_table th {
+  color: gray;
+  font-weight: bold;
+}
+
+/* Light mode styles */
+.text-data {
+  color: #000000;
+  
+}
+.coin_name{
+  padding-right: 0.7rem ;
+}
+
+.market_table td {
+  border-bottom: 1px solid #f0f0f0;
+ 
+  
+}
+
+.coinImage {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.positive-change {
+  color: green;
+}
+
+.negative-change {
+  color: red;
+}
+
+/* Dark mode styles */
+.darkMode .coin {
+  background-color: #333;
+  border: 1px solid #444;
+}
+
+.darkMode .text-data {
+  color: white;
+}
+
+.darkMode .market_table td {
+  border-bottom: 1px solid #444;
+}
+
+.darkMode .positive-change {
+  color: lightgreen;
+}
+
+.darkMode .negative-change {
+  color: lightcoral;
+}

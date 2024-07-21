@@ -1,0 +1,106 @@
+/* Header Styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: var(--background-light); /* Variable used here */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.searchBar {
+  position: relative; /* Make the parent relative to position the suggestions */
+}
+
+.searchBar input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.themeToggle {
+  cursor: pointer;
+  border: 2px solid rgb(186, 186, 186);
+  border-radius: 40px;
+  padding: 5px;
+}
+
+.themeToggle img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Dark Mode Styles */
+.dark .header {
+  background-color: var(--background-dark); /* Variable used here */
+}
+
+.dark .searchBar input {
+  background-color: var(--background-dark); /* Variable used here */
+  color: var(--text-dark); /* Variable used here */
+  border: 1px solid #444;
+}
+
+.dark .themeToggle img {
+  filter: invert(1);
+}
+
+/* Suggestions Box */
+.suggestions {
+  position: absolute; /* Absolute positioning to overlay the suggestions */
+  top: 100%; /* Position it below the search box */
+  left: 0;
+  width: 100%; /* Match the width of the search box */
+  background-color: var(--background-light); /* Variable used here */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000; /* Ensure it overlays other layers */
+}
+
+.suggestionItem {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.suggestionItem:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestionImage {
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Dark Mode for Suggestions */
+.dark .suggestions {
+  background-color: #333;
+  border: 1px solid #444;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark .suggestionItem {
+  color: #fff;
+}
+
+.dark .suggestionItem:hover {
+  background-color: #555;
+}
+
+/* Media Query */
+@media screen and (max-width: 768px) {
+  .searchBar {
+    width: 55%;
+  }
+}

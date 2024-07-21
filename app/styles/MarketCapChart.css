@@ -1,0 +1,46 @@
+/* Light mode styles */
+.chart-container {
+  position: relative;
+  height: 50vh;
+  width: 65vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+
+.chart-container .chartjs-render-monitor {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.market-header h2 {
+  margin: 0;
+  color: black;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.market-header .view-more {
+  color: #1E90FF;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .chart-container {
+    width: 100%;
+    margin-left: -0.7rem;
+    
+  }
+  
+}

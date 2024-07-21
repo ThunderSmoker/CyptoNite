@@ -1,0 +1,335 @@
+.container {
+  padding: 20px;
+}
+
+.section {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.header_title {
+  color: #333;
+}
+
+.chart {
+  margin: 20px 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.performance,
+.fundamentals,
+.about {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  animation: fadeInUp 1s ease-in-out;
+  
+}
+
+.performance h2,
+.fundamentals h2,
+.about h2 {
+  margin-bottom: 10px;
+}
+
+.about p {
+  line-height: 1.6;
+}
+
+.time-intervals {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.time-intervals button {
+  padding: 5px 10px;
+  border: 1px solid #424242; /* Grey border for inactive button */
+  background-color: rgb(218, 218, 218);
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s, border-color 0.3s;
+  color: black;
+
+}
+
+.time-intervals button.active {
+  border: 1px solid #4caf50; /* Different color for active button */
+  background-color:rgb(255, 0, 0);
+  color: black;
+}
+
+.time-intervals button:hover {
+  background-color:rgb(69, 69, 69);
+}
+
+.performanceSection {
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.headerTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.performanceBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.performanceBar span {
+  font-size: 14px;
+  color: #666;
+}
+
+.barWrapper {
+  position: relative;
+  flex-grow: 1;
+  margin: 0 10px;
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+}
+
+.bar {
+  height: 4px;
+  background-color: #4CAF50;
+  border-radius: 2px;
+}
+
+.marker {
+  position: absolute;
+  top: -8px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #4CAF50;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.coinSummary {
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.coinIcon img {
+  width: 40px;
+  height: 40px;
+}
+
+.coinInfo {
+  margin-left: 10px;
+}
+
+.coinName {
+  display: block;
+  font-size: 16px;
+  color: #555;
+}
+
+.coinPrice {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.priceChange {
+  display: flex;
+  align-items: center;
+}
+
+.positiveChange {
+  color: #00C076;
+  background-color: #E6F4EA;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin-right: 8px;
+}
+
+.negativeChange {
+  color: #FF3B30;
+  background-color: #FCE8E6;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin-right: 8px;
+}
+
+.priceChangeValue {
+  color: #555;
+  font-size: 14px;
+}
+.fsection {
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  width: 40%;
+}
+
+
+.header_title {
+  font-size: 1.5em;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.fundamentals {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 1em;
+  color: #666;
+}
+
+.value {
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+.abtheader_title {
+  font-size: 1.5em;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.abtp {
+  font-size: 1em;
+  color: #333;
+  line-height: 1.5;
+}
+/* darkMode.css */
+body.darkMode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.darkMode .container {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.darkMode .section {
+  border: 1px solid #333;
+}
+
+.darkMode .header_title,
+.darkMode .time-intervals button,
+.darkMode .coinName,
+.darkMode .coinPrice,
+.darkMode .priceChange,
+.darkMode .priceChangeValue,
+.darkMode .label,
+.darkMode .value,
+.darkMode .abtp {
+  color: #e0e0e0;
+}
+
+.darkMode .time-intervals button {
+  border: 1px solid #555; /* Darker grey border for inactive button */
+  background-color: #333;
+  color: white;
+}
+
+.darkMode .time-intervals button.active {
+  border: 1px solid #4caf50; /* Green border for active button */
+  background-color: #555;
+}
+
+.darkMode .time-intervals button:hover {
+  background-color: #444;
+}
+.darkMode .headerTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.darkMode .bar {
+  background-color: #4CAF50;
+}
+
+.darkMode .marker {
+  color: #4CAF50;
+}
+
+.darkMode .performanceBar span {
+  color: #999;
+}
+
+.darkMode .item {
+  border-bottom: 1px solid #444;
+}
+
+.darkMode .fsection {
+  background-color: #000;
+  border: 1px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+  .fsection {
+    width: 100%;
+  }
+  
+}
+
+.button_plus{
+  width: 30px;
+  margin-left: 1rem;
+}

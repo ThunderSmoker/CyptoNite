@@ -1,0 +1,135 @@
+/* components/DroppableWatchlist.module.css */
+
+/* Base styles for light mode */
+.watchlist {
+  border: 1px solid #bababa;
+  padding: 20px;
+  width: 35%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Light mode background */
+  color: #000; /* Light mode text color */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.market_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.market_header h2 {
+  margin: 0;
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.market_header a {
+  color: #1E90FF;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.viewMore {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.market_table {
+  width: 100%;
+  border-spacing: 0 20px; /* Adds gap between rows */
+  border-collapse: collapse;
+}
+
+.market_table th, .market_table td {
+  text-align: left;
+  font-size: 12px;
+}
+
+.market_table th {
+  color: gray;
+  font-weight: bold;
+}
+
+.text_data {
+  color: black;
+}
+
+.market_table td {
+
+  margin: 0.5rem 0.1rem;
+}
+
+.coinImage {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.positive-change {
+  color: green;
+}
+
+.negative-change {
+  color: red;
+}
+
+/* Dark mode styles */
+.darkMode .watchlist {
+  background-color: #222; /* Dark mode background */
+  color: #fff; /* Dark mode text color */
+  border: 1px dashed #444;
+}
+
+.darkMode .market_header h2 {
+  color: #fff;
+}
+
+.darkMode .market_header a {
+  color: #1E90FF;
+}
+
+.darkMode .viewMore {
+  color: #1a73e8;
+}
+
+.darkMode .market_table th {
+  color: #aaa;
+}
+
+.darkMode .text_data {
+  color: #fff;
+}
+
+
+
+.darkMode .positive-change {
+  color: #0f0;
+}
+
+.darkMode .negative-change {
+  color: #f00;
+}
+
+
+@media screen and (max-width: 768px) {
+  .watchlist{
+    width: 100%;
+  }
+
+  
+}

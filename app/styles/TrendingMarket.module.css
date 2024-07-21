@@ -1,0 +1,138 @@
+/* TrendingMarket.module.css */
+
+/* Light mode styles */
+.marketContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.marketHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.marketHeader h2 {
+  margin: 0;
+  color: black;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.viewMore {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: bold;
+}
+.marketTable {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+.marketTable th,
+.marketTable td {
+  padding: 12px;
+  text-align: left;
+
+}
+
+.marketTable th {
+  color: gray;
+  font-weight: bold;
+  border-bottom: 1px solid #a19d9d;
+}
+
+.textData {
+  color: black;
+}
+
+.marketTable td {
+  border-bottom: 1px solid #a19d9d;
+}
+
+.coinImage {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.positiveChange {
+  color: green;
+}
+
+.negativeChange {
+  color: red;
+}
+
+/* Dark mode styles */
+.darkMode .marketContainer {
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.darkMode .marketHeader h2 {
+  color: #ddd;
+}
+
+.darkMode .viewMore {
+  color: #1E90FF;
+}
+
+.darkMode .marketTable th {
+  color: #ddd;
+}
+
+.darkMode .textData {
+  color: #ddd;
+}
+
+.darkMode .marketTable td {
+  border-bottom: 1px solid #555;
+}
+
+.darkMode .positiveChange {
+  color: lightgreen;
+}
+
+.darkMode .negativeChange {
+  color: lightcoral;
+}
+
+@media screen and (max-width: 768px) {
+  .marketContainer {
+    padding: 10px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-color: #333 #333;
+  }
+  
+  .marketHeader h2 {
+    font-size: 20px;
+  }
+
+  .marketHeader .viewMore {
+    font-size: 14px;
+  }
+
+  .marketTable th,
+  .marketTable td {
+    padding: 8px;
+  }
+
+  .coinImage {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+  
+}
