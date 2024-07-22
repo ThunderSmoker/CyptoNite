@@ -2,12 +2,12 @@
 
 ## Description
 
-This web application allows users to track and explore various cryptocurrencies with real-time updates and detailed information. Built using Next.js, it offers an intuitive interface for viewing global market trends, individual cryptocurrency data, and more.
+This web application allows users to track and explore various cryptocurrencies with real-time updates and detailed information. Built using Next.js, it offers an intuitive interface for viewing global market trends, individual cryptocurrency data, and more. Sleek UI design and device responsiveness makes it scalable and seamless.
 
 ## Demo Video
 [![DEMO](https://github.com/user-attachments/assets/97c10324-c736-4451-8428-6f3dda8540af
-)](https://www.youtube.com/watch?v=eUyxcOlv3F0)
-- Click Here to watch -> [LINK](https://youtu.be/eUyxcOlv3F0)
+)](https://youtu.be/wIPZtwoLfms)
+- Click Here to watch -> [LINK](https://youtu.be/wIPZtwoLfms)
 
 ## ScreenShots
 ### Home
